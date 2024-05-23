@@ -18,6 +18,7 @@ public:
 	void resize(const int & n)
 	{
 		this->n = n;
+		bit.clear();
 		bit.resize(n, 0);
 	}
 

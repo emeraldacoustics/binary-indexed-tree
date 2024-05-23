@@ -2,6 +2,7 @@
 #include <ext/pb_ds/tree_policy.hpp>
 #include <map>
 #include <utility>
+#include <vector>
 
 using namespace __gnu_pbds;
 using namespace std;
@@ -13,11 +14,9 @@ template <class T>
 class BinaryIndexedTree2
 {
 public:
-	static const int maxn = 1000;
-
 	int n;
 	map<T, int> occ;
-	ordered_set<pair<T, int> > bit[maxn];
+	vector<ordered_set<pair<T, int> > > bit;
 
 	BinaryIndexedTree2(void) : n(0)
 	{
@@ -27,8 +26,8 @@ public:
 	void resize(const int & n)
 	{
 		occ.clear();
-		for (int i = 0; i < this->n; i++)
-			bit[i].clear();
+		bit.clear();
+		bit.resize(n);
 		this->n = n;
 	}
 
